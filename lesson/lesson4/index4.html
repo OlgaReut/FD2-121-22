@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        let i = 0;
+        while (i < 10) {
+            console.log(i);
+
+            if (i === 5) {
+                break;
+                
+            }
+            i ++;
+        }
+
+        for (var house=1; house<=19; house+=2) {
+            if (house==13) {
+                continue;
+                
+            } console.log('Дом №: ' + house);
+        } 
+
+
+        // Массивы
+
+        const arr = [1,2,3,4,5];
+        const arr2 = new Array();
+
+        console.log([] === []);  //false
+        console.log([] == []);  //false
+        console.log(arr === arr2);  //true
+
+        for (let i=0; i < arr.length; i++){
+            console.log(arr[i]);
+        }
+
+
+        // Объекты
+
+        // const user1 = ["Ivan", 25, 'M'];
+        // const user2 = ["Petr", 30, 'M'];
+        // const user3 = ["Olga", 23, 'F'];
+
+        function sayHello(name, age, gender) {
+            alert(`Hello ${name}`)
+        }
+        // sayHello(user1[0], user1[1], user1[2]);
+
+        const obj = {
+            name: 'Zhenya',
+            age: 34,
+            gender: "M"
+        }
+        // sayHello(obj.name, obj.name, obj.gender);
+
+        function sayHello(_obj) {
+            for(let key in _obj){
+                console.log(_obj[key]);
+            }
+        }
+
+
+    </script>
+</body>
+</html>

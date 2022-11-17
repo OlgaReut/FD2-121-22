@@ -37,8 +37,3 @@ function getResult(res) {
             
     console.log("result: ", res);
 }
-
-// getResult(x,y,sign);
-// getResult(x,y, '-');
-// getResult(x,y, '/');
-// getResult(x,y, '*');
