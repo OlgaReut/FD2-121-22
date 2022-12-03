@@ -15,11 +15,11 @@
             let newAccum = '';
             let strArr = str.split('');
 
-            for (i=0; i < strArr.length; i++) {
+            for (let i=0; i < strArr.length; i++) {
                 newAccum += str[i].toUpperCase() + str[i].repeat(i+1).toLowerCase() + `-`;
-                // newAc = newAccum.slice(1, strArr.length-1);
+                newAc = newAccum.slice(0, newAccum.length-1);
             }
-            return newAccum;
+            return newAc;
         }
         const test = accum('abcdef');
         

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+
+        
+
+        function deleteSpace() {
+            // while (str.startsWith(' ')) {
+            //     str = str.replace(' ', '');
+            // }
+
+            // while (str.startsWith(" ")) {
+            //     str = str.replace(" ", "");
+            // }
+
+            // while (str.endsWith(' ')) {
+            //     str = str.slice(0, -1)
+            // }
+            // alert('&#127892;' + str + '&#127892;');
+
+            let str = prompt('Введите любое предложение');
+
+            while (str[0] == ' ') {
+                str = str.split(str[0]).join(`🎔`);
+            }
+
+            while (str[str.length-1] == ' ') {
+                str = str.split(str[str.length-1]).join('&#127892;');
+            } alert(str);
+
+        }
+        deleteSpace();
+
+     </script>
+</body>
+</html>
