@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        function countVow() {
+            
+            const str = prompt('Введите любое предложение на русском языке');
+            let count = 0;
+
+            function vowelsRus(str) {
+                let vowels = ['А', 'а', 'Е', 'е', 'Ё', 'ё', 'И', 'и', 'О', 'о', 'У', 'у', 'ы', 'Э', 'э','Ю', 'ю','Я', 'я'];
+                let strArr = str.split('');
+
+                for (let i = 0; i < strArr.length; i++) {
+                    if (vowels.includes(strArr[i])) {
+                        count += 1;
+                    } 
+                }
+
+            } vowelsRus(str);
+              alert(`Количество гласных в предложении: ${count}`);
+        
+        } countVow();
+
+    </script>
+</body>
+</html>

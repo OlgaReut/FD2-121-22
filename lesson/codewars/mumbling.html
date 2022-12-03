@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+
+        function accum(str) {
+            let newAccum = '';
+            let strArr = str.split('');
+
+            for (i=0; i < strArr.length; i++) {
+                newAccum += str[i].toUpperCase() + str[i].repeat(i+1).toLowerCase() + `-`;
+                // newAc = newAccum.slice(1, strArr.length-1);
+            }
+            return newAccum;
+        }
+        const test = accum('abcdef');
+        
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+
+        const names = ['Ivan', 'Petr', 'Sidr'];  // экземпляр (instance)  класса Array
+
+// forEach
+        function sayHello(name, index, arr) {
+            console.log(`Hello ${name}`);
+            console.log(`Hello ${index}`);
+            console.log(`Hello ${arr}`);
+        }
+
+        names.forEach(sayHello)
+
+        // names.forEach(name => console.log(`Hello ${name}`))
+
+// map
+        const objectNames = names.map(value => {
+            return {
+                name: value
+            }
+        })
+
+// reduce
+
+        const numbers = [1,2,3,4,5]
+
+        const res = numbers.reduce(
+            (prev, curr) => {
+                return prev + curr
+            }, 0
+        )
+
+     </script>
+</body>
+</html>
