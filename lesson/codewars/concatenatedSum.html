@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+
+        function checkConcatenatedSum(x, n) {
+            x = Math.abs(x);
+            let numStr = x.toString();
+            let arr = [];
+
+            for (i=0; i < numStr.length; i++) {
+                arr.push(numStr[i].repeat(n));
+            }
+
+            let sum = 0;
+            for (let y=0; y < arr.length; y++){
+                if (x < 0){
+                    sum -= Number(arr[y])
+                }
+                sum += Number(arr[y])
+            }
+            return (x === sum);
+        
+
+        } checkConcatenatedSum(2997, 3);
+
+    
+     </script>
+</body>
+</html>

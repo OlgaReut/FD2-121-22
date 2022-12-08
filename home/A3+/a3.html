@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        
+
+        // function checkPalindrom() {
+        //     if (pal.length < 1) {
+        //         return true;
+        //     } else if (pal[0] == pal[-1]) {
+        //         return checkPalindrom(pal[1, -1])
+        //     } else return false;
+            
+        //     if (checkPalindrom(pal) == true) {
+        //         console.log('Данная строка палиндром');
+        //     } console.log('Данная строка не палиндром');
+        // } checkPalindrom();
+        
+        function checkPal(str1) {
+            
+            let str = str1.toLowerCase().replace(/[^a-za-яё]/gi,'').replace(/ё/g, 'е').replace(/ъ/g, 'ь');
+
+            const lastIndex = str.length - 1;
+
+            for (let i = 0; i < str.length / 2; i++) {
+                if (str[i] !== str[lastIndex - i]) {
+                    return false;
+                }
+            } return true;
+
+            
+        } 
+
+        function isPal() {
+            const pal = prompt('Введите палиндром');   
+            if (checkPal(pal) === true) {
+                alert('Это палиндром')
+            } else {
+                alert('Это не палиндром')
+            }
+        } isPal();
+    </script>
+</body>
+</html>
