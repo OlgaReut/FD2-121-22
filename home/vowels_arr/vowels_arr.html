@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOWELS_ARR</title>
+</head>
+<body>
+    
+    <script>
+
+        function countVow() {
+            
+            const str = prompt('Введите любое предложение на русском языке');
+            let count = 0;
+
+            function vowelsRus(str) {
+                let vowels = ['А', 'а', 'Е', 'е', 'Ё', 'ё', 'И', 'и', 'О', 'о', 'У', 'у', 'ы', 'Э', 'э','Ю', 'ю','Я', 'я'];
+                let strArr = str.split('');
+
+                strArr.forEach((v, i) => {
+                    if (vowels.includes(strArr[i])) {
+                        count += 1;
+                    }
+                });
+            } vowelsRus(str);
+              alert(`Количество гласных в предложении методом forEach: ${count}`);    
+
+
+            function vowelsRus1(str) {
+                let vowels = ['А', 'а', 'Е', 'е', 'Ё', 'ё', 'И', 'и', 'О', 'о', 'У', 'у', 'ы', 'Э', 'э','Ю', 'ю','Я', 'я'];
+                let strArr = str.split('');
+
+                let a = strArr.filter((v,i) => vowels.includes(strArr[i]));
+                count = a.length;
+                console.log(count);
+
+            } vowelsRus1(str);
+              alert(`Количество гласных в предложении методом filter: ${count}`);
+
+
+            function vowelsRus2(str) {
+                let vowels = ['А', 'а', 'Е', 'е', 'Ё', 'ё', 'И', 'и', 'О', 'о', 'У', 'у', 'ы', 'Э', 'э','Ю', 'ю','Я', 'я'];
+                let strArr = str.split('');
+
+
+                function countReduce(count, i) {
+                    if (vowels.includes(strArr[i])) {
+                        count +=1;
+                    } return count;
+                } console.log(strArr.reduce(countReduce, 1));
+                    
+
+            } vowelsRus2(str);
+              alert(`Количество гласных в предложении методом reduce: ${count}`);
+
+            
+        
+        } countVow();
+
+    </script>
+</body>
+</html>

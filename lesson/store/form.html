@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="form1" action="http://fe.it-academy.by/TestForm.php" method="POST">
+        <input type="text" name="name">
+        <input type="password" name="pass">
+
+        <textarea name="text" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos voluptatem minus, ipsa necessitatibus porro id!</textarea>
+        <input type="hidden" name="typeForm" value="form1">
+        <input type="submit">
+    </form>
+
+    <form name="form2" action="http://fe.it-academy.by/TestForm.php" method="POST">
+        <input type="text" name="name">
+        <input type="password" name="pass">
+        <input type="hidden" name="typeForm" value="form2">
+        <input type="submit">
+    </form>
+
+    <script>
+        document.forms.form1.pass
+    </script>
+</body>
+</html>
