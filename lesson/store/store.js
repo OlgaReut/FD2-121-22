@@ -28,7 +28,7 @@ let cars = [
      modelTitle: 'Velar',
      imgURL: 'https://images.drive.ru/i/0/5fe34608ec6b857bf44ba9a8.jpg',
      description: 'Range Rover Velar (L560) — это компактный кроссовер сегмента «люкс», производства британской автомобильной компании Jaguar Land Rover. Четвертая модель в линейке Range Rover , Velar был представлен ​​1 марта 2017 года в Лондоне, Англия.',
-     price: '999000 $',
+     price: '99000 $',
     },
 
     {id: 5,
@@ -49,10 +49,11 @@ let cars = [
     }
 ]
 
-let str = "";
+
+let app = document.getElementById('app');
 
 function getCars() {
-    
+    let str = "";
     for (let i of cars) {
         str += `<div class="card" style="width: 18rem;">
         <img src=${i.imgURL} class="card-img-top" alt="car">
@@ -64,54 +65,57 @@ function getCars() {
         </div>
     </div>`;
     } 
-    const app = document.getElementById('app');
-    console.log(app);
+    
     app.innerHTML = str;
 }; 
 
-// function getCars() {
-//     const app = document.getElementById('app');
-    
-//     const res = cars.getCars((prev, car) => {
-//         const { img, brandTitle, modelTitle, description, price} = car;
-
-//         return prev += `<div class="card" style="width: 18rem;">
-//             <img src=${img} class="card-img-top" alt="car">
-//             <div class="card-body">
-//                 <h5 class="card-title">${brandTitle}</h5>
-//                 <h6 class="card2-title">${modelTitle}</h6>
-//                 <p class="card-text">${description}</p>
-//                 <h5 class="price">${price}</h5>
-//             </div>
-//         </div>`
-//     }, '')
-
-//     app.innerHTML = res;
+// for (let i = 0; i<cars.length; i++){
+//     getCars(cars[i]);
 // }
 
+// function handleClick(e) {
+//     console.log(e.target.dataset.id);
+// }
 
-// function max() {
-//     cars.sort(function(a, b){
-//         return b.price-a.price
-//     }); 
-// } 
+// function getCars(data) {
+//     const app = document.getElementById('app');
+//     const div = document.createElement('div');
+//     const btn = document.createElement('button');
+//     const p = document.createElement('p');
+//     p.innerText = data.text;
+//     div.appendChild(p);
+//     btn.setAttribute('data-id', data.id);
+//     btn.onclick = handleClick;
+//     div.appendChild(btn);
+//     app.appendChild(div);
+// }
 
-function min(){cars.sort((a,b) => a.price.localeCompare(b.price));
-    const app = document.getElementById('app');
-    console.log(app);
-    app.innerHTML = str;}
+function max() {   // по убыванию
+    cars.sort((a,b) => b.price.localeCompare(a.price));
+    console.log(cars);
+    getCars();
+}
 
+function min() {  // по возрастанию
+    cars.sort((a,b) => a.price.localeCompare(b.price));
+    console.log(cars);
+    getCars();
+}
 
+function send() {  // добавление новых машин
 
-function send() {
-    const brand = document.form.brandTitle.brand;
-    const model = document.form.modelTitle.model;
-    const img = document.form.img.img;
-    // const descr = document.form.description.description;
-    const descr = document.getElementsByName('description');
-    const price = document.form.price.price;
+    let brandTitle = document.querySelector("input[name='brandTitle']").value;
+    let modelTitle = document.querySelector("input[name='modelTitle']").value;
+    let img = document.querySelector("input[name='img']").value;
+    let description = document.querySelector("input[name='description']").value;
+    let price = document.querySelector("input[name='price']").value;
 
-    cars.push({
-        brand, model, img, description, price
-    })
+    if (brandTitle == "" || modelTitle == "" || img == "" || description == "" || isNaN(price) == true) {
+        alert ('Введите все поля')
+    } else {
+        cars.push({
+            brandTitle, modelTitle, img, description, price
+        }); 
+        getCars();
+    }
 };
