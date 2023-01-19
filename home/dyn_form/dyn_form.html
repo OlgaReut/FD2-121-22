@@ -41,8 +41,8 @@
 
 
 
-        let form1= document.forms.form1;
-        let form2= document.forms.form2;
+        let form1 = document.forms.form1;
+        let form2 = document.forms.form2;
     
 
         function createElememts(teg,arr) {
@@ -57,90 +57,85 @@
                     teg.appendChild(lab); //Добавила новый элемент в тег form
                 }
 
-                if(element.kind=="longtext") {
-                    let inp =document.createElement ("input"); //Создала тег input
-                    inp.type ="text"; //Установила атрибут type и значение на тег
-                    inp.name =element.name; //Установила атрибут name
-                    inp.id=element.name; //Установила атрибут id. Теперь при клике по label сфокусируется input
+                if(element.kind == "longtext") {
+                    let inp = document.createElement ("input"); //Создала тег input
+                    inp.type = "text"; //Установила атрибут type и значение на тег
+                    inp.name = element.name; //Установила атрибут name
+                    inp.id = element.name; //Установила атрибут id. Теперь при клике по label сфокусируется input
                     teg.appendChild(inp); //Добавила новый элемент в тег form
-                    teg.appendChild(document.createElement("br"));
-                    
+                    teg.appendChild(document.createElement("br"));  
                 }
 
-                if(element.kind=="number") {
-                    let inp =document.createElement ("input");
-                    inp.type ="number"; 
-                    inp.name =element.name;
-                    inp.id=element.name;
-                    teg.appendChild(inp);
-                    teg.appendChild(document.createElement("br"));
-
-                }
-
-                if(element.kind=="shorttext") {
-                    let inp =document.createElement ("input");
-                    inp.type ="email"; 
-                    inp.name =element.name;
-                    inp.id=element.name;
+                if(element.kind =="number") {
+                    let inp = document.createElement ("input");
+                    inp.type = "number"; 
+                    inp.name = element.name;
+                    inp.id = element.name;
                     teg.appendChild(inp);
                     teg.appendChild(document.createElement("br"));
                 }
 
-                if(element.kind=="combo") {
-                    let sel =document.createElement ("select"); //Создала тег select
-                    sel.name=element.name; 
+                if(element.kind == "shorttext") {
+                    let inp = document.createElement ("input");
+                    inp.type = "email"; 
+                    inp.name = element.name;
+                    inp.id = element.name;
+                    teg.appendChild(inp);
+                    teg.appendChild(document.createElement("br"));
+                }
+
+                if(element.kind == "combo") {
+                    let sel = document.createElement("select"); //Создала тег select
+                    sel.name = element.name; 
                     teg.appendChild(sel); //Добавила select в тег form
                         
                     element.variants.forEach(el => {  //Перебираю массив объектов и создаю option
-                        let opt= document.createElement("option");
-                        opt.value=el.value;
-                        opt.textContent=el.text;
+                        let opt = document.createElement("option");
+                        opt.value = el.value;
+                        opt.textContent = el.text;
                         sel.appendChild(opt); //Добавила option в select
                     });
                 teg.appendChild(document.createElement("br"));
                 }
 
-                if(element.kind=="radio") {
+                if(element.kind == "radio") {
                     element.variants.forEach( el => {
-                        
-                        let inp =document.createElement ("input"); //Перебираю массив объектов и создаю input type ="radio"
-                        inp.type ="radio"; 
-                        inp.name =element.name;
-                        inp.value=el.value;
-                        inp.id=el.value; //Добавила id,чтоб потом связать через for с label
+                        let inp = document.createElement("input"); //Перебираю массив объектов и создаю input 
+                        inp.type = "radio"; 
+                        inp.name = element.name;
+                        inp.value = el.value;
+                        inp.id = el.value; //Добавила id,чтоб потом связать через for с label
                         teg.appendChild(inp);  
                         
-                        let lab=document.createElement ("label"); //Создаю label
-                        lab.textContent= el.text;
-                        lab.setAttribute("for", el.value); //Добавляю for и теперь при  клике на текст элемента label будет фокусироваться radio
+                        let lab = document.createElement("label"); //Создаю label
+                        lab.textContent = el.text;
+                        lab.setAttribute("for", el.value); //Добавляю for, при клике на текст элемента label будет фокусироваться radio
                         teg.appendChild(lab);
-                                            
-
                     })
                     teg.appendChild(document.createElement("br"));
                 }
 
-                if(element.kind=="check") {
-                    let inp =document.createElement ("input");
-                    inp.type ="checkbox"; 
-                    inp.name =element.name;
+                if(element.kind == "check") {
+                    let inp = document.createElement("input");
+                    inp.type = "checkbox"; 
+                    inp.name = element.name;
                     teg.appendChild(inp);
                     teg.appendChild(document.createElement("br"));
                 }
 
-                if(element.kind=="memo") {
+                if(element.kind == "memo") {
                     teg.appendChild(document.createElement("br"));
-                    let textA=document.createElement ("textarea");
-                    textA.name=element.name;
-                    textA.id=element.name;
+                    let textA = document.createElement("textarea");
+                    textA.name = element.name;
+                    textA.id = element.name;
                     teg.appendChild(textA);
                     teg.appendChild(document.createElement("br"));
                 }
 
-                if(element.kind=="submit") {
-                    let subm= document.createElement ("input");
-                    subm.type="submit";
-                    subm.value=element.caption;
+                if(element.kind == "submit") {
+                    let subm = document.createElement("input");
+                    subm.type = "submit";
+                    subm.value = element.caption;
                     teg.appendChild(subm);
                 }
             });

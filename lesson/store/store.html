@@ -11,22 +11,32 @@
   <body>
     
     <div class="buttons ">
-      <div type="button" onclick="getCars()" class="button">Put</div>
+      <div type="button" onclick="getCars()" class="button">Показать все автомобили</div>
 
       <div class="but2">
-        <div type="button" onclick="min()">&#11014;</div>
-        <div type="button" onclick="max()">&#11015;</div>
+        <div class="button" type="button" onclick="min()">Сортировка по возрастанию</div>
+        <div class="button" type="button" onclick="max()">Сортировка по убыванию</div>
       </div>
     </div>
     
-    <form name="form" method="POST">
-      <input type="text" name="brandTitle" value="brand">
-      <input type="text" name="modelTitle" value="model">
-      <input type="text" name="img" value="img">
-      <input type="text" name="description" value="description">
-      <input type="text" name="price" value="price">  
-    </form>
-    <input class="button" type="button" onclick="send()" value="Add">
+    <div class="main">
+      <div class="frm">
+        <form name="form" method="POST">
+          <input type="text" name="brandTitle" value="brand">
+          <input type="text" name="modelTitle" value="model">
+          <input type="text" name="img" value="img">
+          <input type="text" name="description" value="description">
+          <input type="text" name="price" value="price">  
+        </form>
+        <input class="button" type="button" onclick="send()" value="Добавить автомобиль">
+      </div>
+
+      <div class="bst">
+        <h5>&#128722;</h5>
+      </div>
+    </div>
+
+
 
     <div id="app" style="display: flex; justify-content: space-around; flex-wrap: wrap; padding: 100px;">
     </div>
