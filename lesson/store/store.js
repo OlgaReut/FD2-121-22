@@ -118,4 +118,12 @@ function send() {  // добавление новых машин
         }); 
         getCars();
     }
+
+   localStorage['auto'] = JSON.stringify(cars); 
 };
+
+
+
+
+// const auto = JSON.parse(localStorage.getItem('cars'));
+// localStorage.setItem('cars', JSON.stringify('cars'));
