@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B1+</title>
+</head>
+<body>
+    
+    <script>
+        
+        let year = parseInt(prompt('Введите пожалуйста год'));
+
+        function getCentury(century) {
+            century = Math.abs(century);
+            return century = Math.ceil(century/100);
+        }
+
+        year >=0 ? alert(`${getCentury(year)} век`) : alert(`${getCentury(year)} век до нашей эры`);
+    </script>
+</body>
+</html>

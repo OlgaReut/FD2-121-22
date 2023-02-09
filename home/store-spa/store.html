@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="store.css">
     <link rel="stylesheet" href="basket.html">
   </head>
-  <body>
+  <body >
     
     <div class="buttons ">
       <div type="button" onclick="getCars()" class="button">Показать все автомобили</div>
@@ -20,6 +20,8 @@
       </div>
     </div>
     
+    <div id="IPage"></div>
+
     <div class="main">
       <div class="frm">
         <form name="form" method="POST">
@@ -32,11 +34,12 @@
         <input class="button" type="button" onclick="send()" value="Добавить автомобиль">
       </div>
 
-      <div class="bst">
+      <input class="button" type="button" onclick="switchToAboutPage()" value="Корзина">
+      <!-- <div class="bst">
         <h5>&#128722;</h5>
         <div class="choice"></div>
         <div class="allPrice"></div>
-      </div>
+      </div> -->
     </div>
 
 

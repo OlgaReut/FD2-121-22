@@ -1,0 +1,37 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: rgb(211, 235, 226);
+}
+
+header {
+    text-align: center;
+}
+
+.button {
+    width: 33%;
+    height: 50px;
+    background-color: azure;
+
+    border: rgb(231, 238, 236);
+    border-radius: 7px;
+    box-shadow: 0 8px 16px 0 rgba(248, 242, 153, 0.904), 0 6px 20px 0 rgba(0,0,0,0.12);
+
+    font-family: 'Dancing Script', cursive;
+    font-size: 26px;
+    color: rgb(50, 74, 105);
+
+    transition-duration: 0.3s;
+}
+
+.button:hover {
+    border: 2px solid rgb(50, 74, 105);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.button:active {
+    background-color: rgb(50, 74, 105);
+    color: antiquewhite;
+    box-shadow: 0 12px 16px 0 rgba(110, 104, 192, 0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transform: translateY(4px);
+  }

@@ -140,6 +140,57 @@ function min() {  // по возрастанию
     getCars();
 }
 
+"use strict";
+
+window.onhashchange = switchToStateFromURLHash;
+
+var SPAState = {};
+
+
+function switchToStateFromURLHash() {
+    var URLHash = window.location.hash;
+
+    var stateStr = URLHash.substr(1);
+
+
+    var pageHTML = "";
+    switch (stateStr) {
+        case 'Main':
+            pageHTML += send();
+            break;
+        case 'About':
+            pageHTML += renderMain();
+            // pageHTML += rendomBasket();
+            break;
+    }
+    document.getElementById('IPage').innerHTML = pageHTML;
+}
+
+function switchToState(newState) {
+    var stateStr = newState.pagename;
+    location.hash = stateStr;
+}
+
+function switchToMainPage() {
+    switchToState({ pagename: 'Main' });
+}
+
+function switchToAboutPage() {
+    switchToState({ pagename: 'About' });
+}
+
+switchToStateFromURLHash();
+
+function renderMain(){
+    return (
+        `<div class="bst">
+         <h5>&#128722;</h5>
+         <div class="choice"></div>
+         <div class="allPrice"></div>
+         </div>`
+    )
+}
+
 function send() {  // добавление новых машин
 
     let brandTitle = document.querySelector("input[name='brandTitle']").value;
