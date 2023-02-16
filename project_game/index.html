@@ -16,11 +16,12 @@
     <header>
         <input class="button" type="button" value="Главная" onclick="switchToMain()">
         <input class="button" type="button" value="Играть" onclick="switchToGame()">
-        <input class="button" type="button" value="Настройки" onclick="switchToSettings()">
+        <input class="button" type="button" value="Результаты" onclick="switchToResults()">
     </header>
 
     <main>
         <div id="IPage"></div>
+        <canvas id="canvas" width="288px" height="512px"></canvas>
     </main>
 
     <script src="game.js"></script>

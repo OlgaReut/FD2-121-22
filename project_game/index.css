@@ -34,4 +34,24 @@ header {
     color: antiquewhite;
     box-shadow: 0 12px 16px 0 rgba(110, 104, 192, 0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     transform: translateY(4px);
-  }
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.imgBack {
+    background-image: url(img/back.png);
+    opacity: 0.6;
+}
+
+.title {
+    content: "BALLOON";
+}
+
+canvas {
+    box-shadow: 0 8px 16px 0 rgb(50, 74, 105);
+}
