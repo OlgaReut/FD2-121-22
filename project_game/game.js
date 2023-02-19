@@ -23,7 +23,7 @@
                 pageHTML += renderResults();
                 break;
         }
-        document.getElementById('IPage').innerHTML = pageHTML;
+        document.getElementById('IPage').innerHTML;
     }
 
 
@@ -48,28 +48,21 @@
 
 
     function renderMain(){
-        // const cnv = document.getElementById('canvas');
-        
+        const cnv = document.getElementById('canvas');
+        cnv.className = "cnvMain";
 
-        let page = document.getElementsByTagName('main');
-
-        // page.removeChild(cnv);
-
-        let divBack = document.createElement("div");
-        divBack.className = "imgBack";
-        page.appendChild(divBack)
-
-        let title = document.createElement("h1");
-        title.className = "title";
-        divBack.appendChild(title);
-
-        let balls = document.createElement("div");
-        balls.className = "balls";
-        divBack.appendChild(balls);
+        const pageR = document.getElementById('pageR');
+        pageR.className = "pResult";
         
     }
 
     function renderGame() {
+        const pageM = document.getElementById('pageM');
+        pageM.className = "pMain";
+
+        const pageR = document.getElementById('pageR');
+        pageR.className = "pResult";
+
         const cvs = document.getElementById('canvas');
         const ctx = cvs.getContext('2d');
 
@@ -163,12 +156,9 @@
     }
 
     function renderResults() {
-        let page = document.getElementsByTagName('main');
-        let divBack = document.createElement("div");
-        divBack.className = "imgBack";
-        page.appendChild(divBack);
+        const cnv = document.getElementById('canvas');
+        cnv.className = "cnvRes";
 
-        let title = document.createElement("h1");
-        title.className = "title-res";
-        divBack.appendChild(title); 
+        const pageM = document.getElementById('pageM');
+        pageM.className = "pMain";
     }
