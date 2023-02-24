@@ -47,6 +47,93 @@
     switchToStateFromURLHash();
 
 
+    // AJAX
+    const firstname = document.querySelector('[name="firstname"]');
+    const sendBtn = document.querySelector('[value="Зарегистрироваться"]');
+    const btn = document.getElementById('btn');
+    const userView = document.getElementById('user');
+    let score;
+
+    const URL = 'https://fe.it-academy.by/AjaxStringStorage2.php';
+    const NAME = 'REUT_31121994';
+
+    const REQUEST_TYPE = {
+        READ: 'READ',
+        LOCKGET: 'LOCKGET',
+        UPDATE: 'UPDATE',
+        INSERT: 'INSERT',
+    }
+
+    //read
+    btn.addEventListener('click', async () => {
+        const users = await request(REQUEST_TYPE.READ, NAME);
+
+        render(users);
+    });
+
+    //update
+    sendBtn.addEventListener('click', async () => {
+        const { value: firstName } = firstname;
+
+        const user = {
+            firstName,
+            score
+        }
+
+        const updatePassword = Math.random();
+
+        const requestUsers = await request(REQUEST_TYPE.READ, NAME);
+
+        if(!requestUsers || user in requestUsers){
+            const res = [{...user}]
+
+            await request(REQUEST_TYPE.LOCKGET, NAME, updatePassword);
+            await request(REQUEST_TYPE.UPDATE, NAME, updatePassword, JSON.stringify(res));
+        }
+        else{
+            requestUsers.push(user);
+            await request(REQUEST_TYPE.LOCKGET, NAME, updatePassword);
+            await request(REQUEST_TYPE.UPDATE, NAME, updatePassword, JSON.stringify(requestUsers));
+        }
+    });
+
+    async function request(func, name, pass, val) {
+
+        let sp = new URLSearchParams();
+        sp.append('f', func);
+        sp.append('n', name);
+        pass && sp.append('p', pass);
+        val && sp.append('v', val);
+
+        try {
+            const response = await fetch(URL, { method: 'POST', body: sp })
+            const data = await response.json();
+
+            if(data.result === 'OK'){
+                alert('Success');
+
+                return;
+            }
+
+            return JSON.parse(data.result);
+        } catch (err) {
+            alert(err)
+        }
+    }
+
+    function render(users){
+        let strLI = '';
+
+        users.forEach(user => {
+            strLI += `
+            <li>Игрок: ${user.firstName} 
+        
+            </li>`
+        });
+        userView.innerHTML = strLI;
+    }
+
+
     function renderMain(){
         const cnv = document.getElementById('canvas');
         cnv.className = "cnvMain";
@@ -139,20 +226,21 @@
 
             ctx.font = "24px 'Dancing Script'"
             ctx.fillText(`Очки: ${score}`, 10, cvs.height - 20);
-            ctx.fillText(`Игрок:`, cvs.width / 2, cvs.height - 20);
+            // ctx.fillText(`Игрок: ${user.firstname}`, cvs.width / 3, cvs.height - 20);
+            function render(users){
+                
+        
+                users.forEach(user => {
+                    ctx += `
+                    <p width="cvs.width / 3" height="cvs.height - 20">Имя: ${user.firstName}</p>`
+                });
+                ctx.innerHTML = ctx;
+            }
 
             requestAnimationFrame(draw);  // вызов функции постоянно
         }
 
         tree.onload = draw;
-
-        let page = document.getElementsByTagName('main');
-        let button = document.createElement("input");
-        button.type = "button btn-1";
-        page.appendChild(button);
-        let button2 = document.createElement("input");
-        button2.type = "button btn-2";
-        page.appendChild(button2);
     }
 
     function renderResults() {
@@ -162,3 +250,77 @@
         const pageM = document.getElementById('pageM');
         pageM.className = "pMain";
     }
+
+
+
+
+
+    
+    // //read
+    // btn.addEventListener('click', async () => {
+    //     const users = await request(REQUEST_TYPE.READ, NAME);
+
+    //     render(users);
+    // });
+
+    // //update
+    // sendBtn.addEventListener('click', async () => {
+    //     const { value: firstName } = firstname;
+
+    //     const user = {
+    //         firstName,
+    //         score
+    //     }
+
+    //     const updatePassword = Math.random();
+
+    //     const requestUsers = await request(REQUEST_TYPE.READ, NAME);
+
+    //     if(!requestUsers){
+    //         const res = [{...user}]
+
+    //         await request(REQUEST_TYPE.LOCKGET, NAME, updatePassword);
+    //         await request(REQUEST_TYPE.UPDATE, NAME, updatePassword, JSON.stringify(res));
+    //     }
+    //     else{
+    //         requestUsers.push(user);
+    //         await request(REQUEST_TYPE.LOCKGET, NAME, updatePassword);
+    //         await request(REQUEST_TYPE.UPDATE, NAME, updatePassword, JSON.stringify(requestUsers));
+    //     }
+       
+        
+    // });
+
+    // async function request(func, name, pass, val) {
+
+    //     let sp = new URLSearchParams();
+    //     sp.append('f', func);
+    //     sp.append('n', name);
+    //     pass && sp.append('p', pass);
+    //     val && sp.append('v', val);
+
+    //     try {
+    //         const response = await fetch(URL, { method: 'POST', body: sp })
+    //         const data = await response.json();
+
+    //         if(data.result === 'OK'){
+    //             alert('Success');
+
+    //             return;
+    //         }
+
+    //         return JSON.parse(data.result);
+    //     } catch (err) {
+    //         alert(err)
+    //     }
+    // }
+
+    // function render(users){
+    //     let strLI = '';
+
+    //     users.forEach(user => {
+    //         strLI += `
+    //         <li>Имя: ${user.firstName} <br> Очки: ${user.scorE}</li>`
+    //     });
+    //     userView.innerHTML = strLI;
+    // }

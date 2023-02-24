@@ -7,6 +7,7 @@
     <title>Balloon</title>
 
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="media.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +17,7 @@
     <header>
         <input class="button" type="button" value="Главная" onclick="switchToMain()">
         <input class="button" type="button" value="Играть" onclick="switchToGame()">
-        <input class="button" type="button" value="Результаты" onclick="switchToResults()">
+        <input id="btn" class="button" type="button" value="Результаты" onclick="switchToResults()">
     </header>
 
     <main>
@@ -26,7 +27,7 @@
         <div id="pageM">
             <h1>BALLOON</h1>
 
-            <input type="text" name="firstname" placeholder="Введите имя">
+            <input class="butt" type="text" name="firstname" placeholder="Введите имя">
             <input type="submit" value="Зарегистрироваться">
 
             <img class="ball" src="img/ball.png" alt="balloons">
@@ -34,7 +35,7 @@
 
         <div id="pageR">
             <img class="cup" src="img/cup.png" alt="cup">
-            <ul></ul>
+            <ul id="user"></ul>
         </div>
     </main>
 

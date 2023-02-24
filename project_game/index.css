@@ -3,6 +3,7 @@ body {
     margin: 0;
     background: url(img/back.png) no-repeat;
     background-size: 100%;
+    background-color: greenyellow
 }
 
 header {
@@ -60,13 +61,16 @@ canvas {
     text-align: center;
     font-size: 110px;
     font-weight: 600;
+    font-family: 'Dancing Script', cursive;
     letter-spacing: 30px;
     color: #f0259b;
     text-shadow: 0 -1px 4px #FFFFFF, 0 -2px 10px #1cf7c0, 0 -10px 20px #62b4be, 0 -15px 20px #dd3ddd;
 }
 
 #pageM input {
+    display: block;
     text-align: center;
+    
     font-size: 2em;
     background: linear-gradient(135deg, #12BCB0 20%, #FABE0E 70%);
     -webkit-background-clip: text;
@@ -76,16 +80,17 @@ canvas {
     border: 3px solid transparent;
     border-image: linear-gradient(135deg, #12BCB0 20%, #FABE0E 70%);
     border-image-slice: 1;
+    color: #12BCB0;
 }
 
 .ball{
     display: block;
     margin-top: 30px;
-    margin-left: -480px;
+    margin-left: -400px;
     width: 200px;
     height: 200px;
     position: absolute;
-    animation: ball 15s linear infinite 2s forwards;
+    animation: ball 15s linear infinite 0s forwards;
 }
 
 @keyframes ball {
@@ -93,7 +98,7 @@ canvas {
         left: 10%;
     }
     100% {
-        left: 109.5%;
+        left: 114%;
     }
 }
 
@@ -129,4 +134,13 @@ canvas {
     }
 }
 
+#user {
+    position: absolute;
+    margin-left: -50px;
+    margin-top: 220px;
+
+    font-family: 'Dancing Script', cursive;
+    font-size: 20px;
+    color: rgb(50, 74, 105);
+}
     
